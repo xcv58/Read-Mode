@@ -23,6 +23,14 @@
     "default_icon": "icon-enabled.png",
     "default_title": "Toggle Read Mode."
   },
+  "commands": {
+    "_execute_page_action": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+F",
+        "mac": "MacCtrl+Shift+F"
+      }
+    }
+  },
   "options_page": "options.html",
   "key": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC8roxVhN04z9cuvmWmekXAk06tlIk/Btfo091/Btp7OW3dXdzj7rYT6eznAn/7uQ3EhG3iprRgv/2rRpY8vpIbg2uVEGpCWCuMSWPvd6PTiivinNy6oLCRigbvqtA3pojlrszbuVjOep1v7F24IkF5geuwrivYqEy4befPpRBfTQIDAQAB",
   "permissions": [ "storage", "tabs", "http://*/*", "https://*/*" ],
