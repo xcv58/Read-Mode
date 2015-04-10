@@ -1,6 +1,5 @@
-
-
 var cleaned = false;
+var fontSize = 24;
 
 function startUp() {
   if (document.readyState == 'complete') {
@@ -61,7 +60,15 @@ function readerEnable() {
         el.className = 'hidden';
       };
     };
-
+    // $('body.reader div').css('font-size', '8px');
+    var elements = document.getElementsByClassName('reader');
+    chrome.storage.sync.get('fontSize', function (obj) {
+      console.log(obj);
+      fontSize = obj.fontSize || fontSize;
+      console.log('fontSize: ' + fontSize);
+      elements[0].style.fontSize = fontSize + 'px';
+    });
+    console.log("enable " + fontSize);
   };
 };
 

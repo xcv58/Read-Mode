@@ -126,7 +126,6 @@ body.reader h6, body.reader h6 a {
 body.reader p,
 body.reader blockquote,
 body.reader div{
-  font-size: 32px;
   text-align: left;
   line-height: 1.5em;
   margin-bottom: 1.5em;
