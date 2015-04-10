@@ -42,16 +42,16 @@ function readerEnable() {
     removeElements(document.querySelectorAll('style'));
     removeElements(document.querySelectorAll('link[rel=stylesheet]'));
     removeElements(document.querySelectorAll('iframe'));
-    
+
     var all = document.querySelectorAll('*');
-    
+
     removeAttr(document.body, [ 'color', 'bgcolor', 'text', 'link', 'vlink', 'alink' ]);
 
     for (var i = all.length - 1; i > -1; i--) {
       var el = all[i];
       removeAttr(el, [ 'face', 'size', 'color', 'background', 'border', 'bgcolor', 'width', 'height', 'style' ]);
     };
-    
+
     var images = document.querySelectorAll('img');
 
     for (var i = images.length - 1; i > -1; i--) {
@@ -61,21 +61,35 @@ function readerEnable() {
       };
     };
     // $('body.reader div').css('font-size', '8px');
-    var elements = document.getElementsByClassName('reader');
     chrome.storage.sync.get('fontSize', function (obj) {
-      console.log(obj);
+      var elements = document.getElementsByClassName('reader');
       fontSize = obj.fontSize || fontSize;
-      console.log('fontSize: ' + fontSize);
       elements[0].style.fontSize = fontSize + 'px';
     });
-    console.log("enable " + fontSize);
   };
 };
 
 chrome.extension.onRequest.addListener(function(req, from) {
   if (req == 'reader-disable') {
-    readerDisable();  
+    readerDisable();
   } else if (req == 'reader-enable') {
     startUp();
   };
+});
+
+chrome.storage.onChanged.addListener(function(changes, namespace) {
+  for (var key in changes) {
+    var storageChange = changes[key];
+    console.log('Storage key "%s" in namespace "%s" changed. ' +
+                'Old value was "%s", new value is "%s".',
+                key,
+                namespace,
+                storageChange.oldValue,
+                storageChange.newValue);
+    if (key === 'fontSize' && storageChange.oldValue != storageChange.newValue) {
+      var elements = document.getElementsByClassName('reader');
+      var newFontSize = storageChange.newValue;
+      elements[0].style.fontSize = newFontSize + 'px';
+    }
+  }
 });

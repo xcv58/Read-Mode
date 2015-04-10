@@ -38,7 +38,6 @@ $(document).ready(function() {
 });
 
 function update() {
-  localStorage.fontSize = fontSize;
   document.getElementById('font-size').value = fontSize;
   document.getElementById('font-px').innerHTML = fontSize + 'px';
   saveChange(fontSize);

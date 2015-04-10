@@ -10,7 +10,8 @@
     "48": "icon-48.png"
   },
   "background": {
-    "scripts": [ "json2.js", "background.js" ]
+    "scripts": [ "js/json2.js", "js/background.js" ],
+    "persistent": true
   },
   "content_scripts": [ {
     "all_frames": true,
@@ -24,6 +25,27 @@
     "default_title": "Toggle Read Mode."
   },
   "commands": {
+    "decrease-fontsize": {
+      "suggested_key": {
+        "default": "Alt+1",
+        "mac": "Alt+1"
+      },
+      "description": "decrease font size."
+    },
+    "increase-fontsize": {
+      "suggested_key": {
+        "default": "Alt+2",
+        "mac": "Alt+2"
+      },
+      "description": "increase font size."
+    },
+    "reset-fontsize": {
+      "suggested_key": {
+        "default": "Alt+3",
+        "mac": "Alt+3"
+      },
+      "description": "reset font size."
+    },
     "_execute_page_action": {
       "suggested_key": {
         "default": "Ctrl+Shift+F",
