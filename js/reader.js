@@ -80,12 +80,12 @@ chrome.extension.onRequest.addListener(function(req, from) {
 chrome.storage.onChanged.addListener(function(changes, namespace) {
   for (var key in changes) {
     var storageChange = changes[key];
-    console.log('Storage key "%s" in namespace "%s" changed. ' +
-                'Old value was "%s", new value is "%s".',
-                key,
-                namespace,
-                storageChange.oldValue,
-                storageChange.newValue);
+    // console.log('Storage key "%s" in namespace "%s" changed. ' +
+    //             'Old value was "%s", new value is "%s".',
+    //             key,
+    //             namespace,
+    //             storageChange.oldValue,
+    //             storageChange.newValue);
     if (key === 'fontSize' && storageChange.oldValue != storageChange.newValue) {
       var elements = document.getElementsByClassName('reader');
       var newFontSize = storageChange.newValue;

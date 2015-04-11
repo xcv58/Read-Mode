@@ -24,10 +24,10 @@ function update(tabId) {
     var icon;
 
     if (enabled) {
-      icon = 'icon-enabled.png';
+      icon = 'images/icon-enabled.png';
       chrome.tabs.sendRequest(Tab.id, "reader-enable");
     } else {
-      icon = 'icon-disabled.png';
+      icon = 'images/icon-disabled.png';
       chrome.tabs.sendRequest(Tab.id, "reader-disable");
     };
 
@@ -64,8 +64,6 @@ function toggleReader(url) {
 };
 
 chrome.commands.onCommand.addListener(function(command) {
-  console.log('Command:' + command);
-  console.log(command);
   chrome.storage.sync.get('fontSize', function (obj) {
     var fontSize = obj.fontSize || 24;
     if (command === "increase-fontsize") {
@@ -79,7 +77,7 @@ chrome.commands.onCommand.addListener(function(command) {
     }
     chrome.storage.sync.set({'fontSize': fontSize}, function() {
       // Notify that we saved.
-      console.log('new font size: ' + fontSize);
+      // console.log('new font size: ' + fontSize);
     });
   });
 });
