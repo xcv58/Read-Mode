@@ -2,6 +2,7 @@
   "manifest_version": 2,
   "name": "Reader Mode",
   "version": "1.0.8",
+  "author": "xcv58",
   "description": "Puts Google Chrome into read mode for a pleasant reading experience.",
   "icons": {
     "128": "images/icon-128.png",
@@ -54,7 +55,5 @@
     }
   },
   "options_page": "options.html",
-  "permissions": [ "storage", "tabs", "http://*/*", "https://*/*" ],
-  "update_url": "http://clients2.google.com/service/update2/crx",
-  "author": "xcv58"
+  "permissions": [ "storage", "tabs", "http://*/*", "https://*/*" ]
 }
