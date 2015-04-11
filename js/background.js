@@ -19,6 +19,9 @@ function set(name, val) {
 
 // Updates.
 function update(tabId) {
+  if (tabId instanceof Object) {
+    return;
+  }
   chrome.tabs.get(tabId, function(Tab) {
     var enabled = isReaderEnabled(Tab.url);
     var icon;
