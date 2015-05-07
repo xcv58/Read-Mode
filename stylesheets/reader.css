@@ -204,10 +204,10 @@ body.reader a:hover {
 }
 
 body.reader #reader-wrap{
-  width: 80%;
-  max-width: 850px;
-  min-width: 640px;
-  padding: 40px 100px;
+  width: 75%;
+  min-width: 20em;
+  max-width: 64em;
+  padding: .5em 2em;
   margin: auto;
   background: #fcfcfc;
   box-shadow: 0 0 5px rgba(0, 0, 0, .7);
